@@ -7,66 +7,66 @@
 ## The model is described and the code runs as follows（The video is in the “Model introduction video” folder）:
 ![](https://github.com/laqinim13/DPRM/blob/master/DPRM.gif)
 
-# 配置环境
+# Configure the environment
 
  - Anaconda 3
- - python3.8
+ - Python 3.8
  - Pytorch 1.9
  - Ubuntu 18.04
 
-# 文件介绍
-## conformer:语音识别模型代码
+# Documentation
+## conformer: speech recognition model code
 
- -  conformer/configs：配置文件
- -  conformer/dataset:数据文件
- -  conformer/masr:模型文件
- -  conformer/model:权重文件
- -  conformer/tools，utils:辅助代码文件
- -  conformer/create_data.py:数据格式转换代码
- -  conformer/export_model:导出模型代码
- -  conformer/train.py:训练代码
- -  conformer/infer_path:测试代码
+ - conformer/configs: configuration files
+ - conformer/dataset:data files
+ - conformer/masr:model files
+ - conformer/model:weights file
+ - conformer/tools, utils: auxiliary code files
+ - conformer/create_data.py: data format conversion code.
+ - conformer/export_model:Export model code.
+ - conformer/train.py: training code.
+ - conformer/infer_path:test code.
 
-## yolov5:目标检测网络代码
+## yolov5:Target detection network code.
 
- -  yolov5/data:目标检测对象配置和数据文件
- -  yolov5/models:yolo各个版本的配置文件
- -  yolov5/pretrained:预训练权重文件
- -  yolov5/runs:训练结果权重文件
- -  yolov5/utils:辅助代码文件
- -  yolov5/yolov5:模型文件
- -  yolov5/train.py:训练代码
- -  yolov5/val.py:验证代码
- -  yolov5/detec.py:测试代码
+ - yolov5/data:Target detection object configuration and data files.
+ - yolov5/models:Configuration files for each version of yolo.
+ - yolov5/pretrained:pre-training weights file
+ - yolov5/runs: training result weights file.
+ - yolov5/utils: auxiliary code files.
+ - yolov5/yolov5:model file
+ - yolov5/train.py: training code
+ - yolov5/val.py:validation code
+ - yolov5/detec.py:test code
 
-## 关键点检测
+## Keypoint detection
 
- - configs:配置文件
- - data:数据文件
- - work_space:训练结果保存文件
- - pose:模型代码
- - train.py:训练代码
- - test.py:测试代码
+ - configs: configuration file
+ - data:data file
+ - work_space: save the training result file.
+ - pose:model code
+ - train.py: training code.
+ - test.py: test code.
  
-## 其他
- - my_test:测试视频文件
- - output:整体模型输出结果
- - demo.py:模型运行代码
+## Others
+ - my_test:test video file.
+ - output:overall model output
+ - demo.py: model running code.
  
-# 数据标记
- - 目标检测和关键点检测数据标记
-目标检测与关键点检测数据标注中分别对都塔尔、按压品位的手，扫弦的手，按压品位手的5个手指关键点及34个都塔尔品位关键点进行标注。（用labelme标注）
+# Data labeling
+## Target detection and keypoint detection data labeling
+The target detection and keypoint detection data labeling are labeled for the 5 finger keypoints of the dutar, the hand that presses the taste, the hand that sweeps the strings, the hand that presses the taste, and the 34 keypoints of the dutar's taste, respectively. (Labeled with labelme)
 ![]()
 
- - 语音识别标注
- 声音识别数据标注中将向下扫弦和向上扫弦状态标注为“d”和“u”。
+## Voice Recognition Labeling
+ Voice recognition data labeled with “d” and “u” for downward and upward sweeps.
 ![]()
 
-# 模型训练
-## 目标检测网络yolov5的训练
+# Model training
+## Training of target detection network yolov5
 
- 1. 先用【】使标注数据进行数据格式转换，从labelme生成的json文件中提取需要的数据，转换成yolov格式的txt数据
- 2. 数据集格式(训练数据格式，测试跟这个一样)：
+ 1. first use [ ] to make the labeled data for data format conversion, from the labelme generated json file to extract the required data, converted to yolov format txt data
+ 2. dataset format (training data format, test with this same):
   /yolov5/data/train/
      - /images
         -- /1.jpg
@@ -77,27 +77,59 @@
         -- /2.txt
         -- /...
      - /class.txt
- 3. 设置完相应的配置后（配置文件已配置完成可以直接进行训练），用/yolov5/train.py进行训练
- 4.训练结果：
+ 3. After setting up the corresponding configuration (configuration file has been configured can be directly for training), with /yolov5/train.py for training
+ 4. Training results:
 ![]()
-## 关键点检测网络训练
-### 手部关键点网络训练
 
- 1. 先用【】使标注数据进行数据格式转换，从labelme生成的json文件中提取需要的数据，转换成yolov格式的txt数据
- 2. 数据集格式：
-  /yolov5/data
-     - /images
-        -- /1.jpg
-        -- /2.jpg
+## Keypoint detection network training ##
+### Hand keypoint network training
+
+ 1. first use [ ] to make the labeled data for data format conversion, from the labelme generated json file to extract the required data, converted to the corresponding hand key point data format txt data
+ 2. Data set format:
+  /data
+     - /train
+        -- /images
+        -- /train.json
         -- /....
-     - /labels
-        -- /1.txt
-        -- /2.txt
+     - /test
+        -- /images
+        -- /test.json
         -- /...
      - /class.txt
- 3. 设置完相应的配置后（配置文件已配置完成可以直接进行训练），用/yolov5/train.py进行训练
- 4.训练结果：
+ 3. After setting up the corresponding hand keypoint configuration (configuration file has been configured can be trained directly), use train.py to train (training with the hand keypoint configuration file)
+ 4. Training results:
+![]()
+### Hand keypoint network training
+
+ 1. first use [ ] to make the labeled data for data format conversion, from the labelme generated json file to extract the required data, converted into corresponding to the key point data format of the Duetal txt data
+ 2. dataset format:
+  /data
+     - /train
+        -- /images
+        -- /train.json
+        -- /....
+     - /test
+        -- /images
+        -- /test.json
+        -- /...
+     - /class.txt
+ 3. After setting up the corresponding Dutal key point configuration (configuration file has been configured can be directly for training), use train.py for training (training with Dutal key point configuration file)
+ 4. Training results:
 ![]()
 
-
- 
+## Sweep string state recognition module training
+ 1. first use [ ] to make the labeled data for data format conversion, from the json file generated by labelme to extract the required data, converted into txt data corresponding to the Dutal key point data format
+ 2. dataset format:
+  /data
+     - /train
+        -- /images
+        -- /train.json
+        -- /....
+     - /test
+        -- /images
+        -- /test.json
+        -- /...
+     - /class.txt
+ 3. After setting up the corresponding Dutal key point configuration (configuration file has been configured can be directly for training), use train.py for training (training with Dutal key point configuration file)
+ 4. Training results:
+![]()
