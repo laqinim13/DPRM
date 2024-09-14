@@ -56,7 +56,7 @@
 # Data labeling
 ## Target detection and keypoint detection data labeling
 The target detection and keypoint detection data labeling are labeled for the 5 finger keypoints of the dutar, the hand that presses the taste, the hand that sweeps the strings, the hand that presses the taste, and the 34 keypoints of the dutar's taste, respectively. (Labeled with labelme)
-![](https://github.com/laqinim13/DPRM/blob/master/images/label.png)
+![](https://github.com/laqinim13/DPRM/blob/master/images/label1.png)
 
 ## Voice Recognition Labeling
  Voice recognition data labeled with “d” and “u” for downward and upward sweeps.
@@ -64,7 +64,7 @@ The target detection and keypoint detection data labeling are labeled for the 5 
 
 # Model training
 ## Overall model results
-![](https://github.com/laqinim13/DPRM/blob/master/images/jieguo.png)
+![](https://github.com/laqinim13/DPRM/blob/master/images/jieguo1.png)
 ## Training of target detection network yolov5
 
  1. first use [ ] to make the labeled data for data format conversion, from the labelme generated json file to extract the required data, converted to yolov format txt data
